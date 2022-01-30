@@ -8,11 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="54,30,0,0" Text="Letters" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox Name="Letter0" GotKeyboardFocus="GotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="54,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
-        <TextBox Name="Letter1" GotKeyboardFocus="GotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="77,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
-        <TextBox Name="Letter2" GotKeyboardFocus="GotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="100,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
-        <TextBox Name="Letter3" GotKeyboardFocus="GotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="123,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
-        <TextBox Name="Letter4" GotKeyboardFocus="GotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="146,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
+        <TextBox Name="Letter0" GotKeyboardFocus="TBGotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="54,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
+        <TextBox Name="Letter1" GotKeyboardFocus="TBGotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="77,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
+        <TextBox Name="Letter2" GotKeyboardFocus="TBGotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="100,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
+        <TextBox Name="Letter3" GotKeyboardFocus="TBGotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="123,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
+        <TextBox Name="Letter4" GotKeyboardFocus="TBGotFocus" MaxLength="1" HorizontalAlignment="Left" Margin="146,62,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="18" Height="16"/>
         <Button Content="" Name="Button0" HorizontalAlignment="Left" Margin="54,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button0_Click" />
         <Button Content="" Name="Button1" HorizontalAlignment="Left" Margin="77,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button1_Click" />
         <Button Content="" Name="Button2" HorizontalAlignment="Left" Margin="100,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button2_Click" />

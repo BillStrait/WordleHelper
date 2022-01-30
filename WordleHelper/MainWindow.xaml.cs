@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +22,14 @@ namespace WordleHelper
     public partial class MainWindow : Window
     {
 
-		public List<string> Words { get; set; }
+        public ObservableCollection<string> Words { get; set; }
         private WordStore store = new WordStore();
         private int[] buttonState = { 0, 0, 0, 0, 0 };
 
         public MainWindow()
         {
             InitializeComponent();
-            Words = store.FreshList;
+            Words = new ObservableCollection<string>(store.FreshList);
             PossibleWords.DataContext = Words;
         }
 
@@ -58,21 +59,28 @@ namespace WordleHelper
                 var letter = FindTextBoxByIndex(i);
                 if (string.IsNullOrEmpty(letter.Text))
                     break;
-
+                var wordsToRemove = new List<string>();
                 switch (buttonState[i])
                 {
-                    case 1:
-                        Words = Words.Where(c => c.Contains(letter.Text[0]) && c[i]!=letter.Text[0]).ToList();
+                    case 1: //Yellow
+                        RemoveWords(Words.Where(c => !c.Contains(letter.Text[0]) || c[i] == letter.Text[0]).ToList());
                         break;
-                    case 2:
-                        Words = Words.Where(c => c[i] == letter.Text[0]).ToList();
+                    case 2: //Green
+                        RemoveWords(Words.Where(c => c[i] != letter.Text[0]).ToList());
                         break;
-                    default:
-                        Words = Words.Where(c => !c.Contains(letter.Text[0])).ToList();
+                    default: //White
+                        RemoveWords(Words.Where(c => c.Contains(letter.Text[0])).ToList());
                         break;
                 }
             }
-            PossibleWords.DataContext = Words;
+        }
+
+        private void RemoveWords(List<string> wordsToRemove)
+        {
+            foreach (var word in wordsToRemove)
+            {
+                Words.Remove(word);
+            }
         }
 
         #region textbox fiddly shit
@@ -96,7 +104,7 @@ namespace WordleHelper
             }
         }
 
-        public void GotFocus(object sender, RoutedEventArgs e)
+        public void TBGotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             textBox.Dispatcher.BeginInvoke(new Action(() => textBox.SelectAll()));
