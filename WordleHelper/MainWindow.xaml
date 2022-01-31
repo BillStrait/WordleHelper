@@ -25,5 +25,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Submit" Name="SubmitButton" HorizontalAlignment="Left" Margin="196,83,0,0" VerticalAlignment="Top" Click="SubmitButton_Click"/>
+        <CheckBox Content="Potential Answers First (Resets Progress)" Name="AnswersFirst" HorizontalAlignment="Left" Margin="261,31,0,0" VerticalAlignment="Top" Checked="AnswersFirst_CheckedChanged" Unchecked="AnswersFirst_CheckedChanged"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ namespace WordleHelper
 {
     class WordStore
     {
-		private static string[] WordList = {
+        private static string[] WordList = {
 			"cigar",
 			"rebut",
 			"sissy",
@@ -12983,6 +12983,7 @@ namespace WordleHelper
 			"zymic"
 		};
 
-		public List<String> FreshList {  get { return WordList.ToList(); }  set { return; } }
+		public List<string> FreshList {  get { return WordList.ToList(); }  set { return; } }
+		public List<string> FreshListAlpha { get { return WordList.OrderBy(c => c).ToList(); } set { return; } }
 	}
 }

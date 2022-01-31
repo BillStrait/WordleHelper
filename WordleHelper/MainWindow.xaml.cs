@@ -29,7 +29,7 @@ namespace WordleHelper
         public MainWindow()
         {
             InitializeComponent();
-            Words = new ObservableCollection<string>(store.FreshList);
+            Words = new ObservableCollection<string>(store.FreshListAlpha);
             PossibleWords.DataContext = Words;
         }
 
@@ -143,8 +143,28 @@ namespace WordleHelper
         {
             UpdateWords();
         }
+
         #endregion
 
+        private void AnswersFirst_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+            var isChecked = AnswersFirst.IsChecked == true;
 
+            if (isChecked)
+            {
+                Words = new ObservableCollection<string>(store.FreshList);
+            }
+            else
+            {
+                Words = new ObservableCollection<string>(store.FreshListAlpha); 
+            }
+            PossibleWords.DataContext = Words;
+            Button0.Background = Brushes.White;
+            Button1.Background = Brushes.White;
+            Button2.Background = Brushes.White;
+            Button3.Background = Brushes.White;
+            Button4.Background = Brushes.White;
+            buttonState = new int[]{ 0, 0, 0, 0, 0};
+        }
     }
 }
