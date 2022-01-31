@@ -25,12 +25,14 @@ namespace WordleHelper
         public ObservableCollection<string> Words { get; set; }
         private WordStore store = new WordStore();
         private int[] buttonState = { 0, 0, 0, 0, 0 };
+        private TextBox[] letters;
 
         public MainWindow()
         {
             InitializeComponent();
             Words = new ObservableCollection<string>(store.FreshListAlpha);
             PossibleWords.DataContext = Words;
+            letters = new TextBox[] { Letter0, Letter1, Letter2, Letter3, Letter4 };
         }
 
         private static int UpdateButton(Button button)
@@ -56,7 +58,7 @@ namespace WordleHelper
         {
             for(var i = 0; i<buttonState.Length; i++)
             {
-                var letter = FindTextBoxByIndex(i);
+                var letter = letters[i];
                 if (string.IsNullOrEmpty(letter.Text))
                     break;
                 var wordsToRemove = new List<string>();
@@ -83,26 +85,7 @@ namespace WordleHelper
             }
         }
 
-        #region textbox fiddly shit
-
-        private TextBox FindTextBoxByIndex(int index)
-        {
-            switch (index)
-            {
-                case 0:
-                    return Letter0;
-                case 1:
-                    return Letter1;
-                case 2:
-                    return Letter2;
-                case 3:
-                    return Letter3;
-                case 4:
-                    return Letter4;
-                default:
-                    return new TextBox();
-            }
-        }
+        #region textbox fiddling
 
         public void TBGotFocus(object sender, RoutedEventArgs e)
         {
