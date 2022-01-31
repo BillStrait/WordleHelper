@@ -22,10 +22,9 @@
         <Button Content="" Name="Button2" HorizontalAlignment="Left" Margin="100,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button2_Click" />
         <Button Content="" Name="Button3" HorizontalAlignment="Left" Margin="123,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button3_Click" Grid.ColumnSpan="2" />
         <Button Content="" Name="Button4" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="18" Background="White" Click="Button4_Click" Grid.Column="1" />
-        <DataGrid Name="PossibleWords" Margin="10,123,18,10" ItemsSource="{Binding}" Grid.ColumnSpan="2">
+        <DataGrid Name="PossibleWords" Margin="10,123,18,10" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="wordCol" Header="Possible Words" Width="*" IsReadOnly="True" Binding="{Binding Path=.}"/>
-
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Submit" Name="SubmitButton" HorizontalAlignment="Left" Margin="60,83,0,0" VerticalAlignment="Top" Click="SubmitButton_Click" Grid.Column="1"/>
